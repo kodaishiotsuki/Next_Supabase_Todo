@@ -30,7 +30,7 @@ const Auth: NextPage = () => {
       <form action="" onSubmit={handleSubmit}>
         <div>
           <input
-            className="my-2 rounded border-gray-300 px-3 py-3 text-sm placeholder-gray-500 focus:border-indigo-500 focus:outline-none"
+            className="my-2 rounded border border-gray-300 px-3 py-3 text-sm placeholder-gray-500 focus:border-indigo-500 focus:outline-none"
             type="text"
             required
             placeholder="Email"
@@ -42,8 +42,8 @@ const Auth: NextPage = () => {
         </div>
         <div>
           <input
-            className="my-2 rounded border-gray-300 px-3 py-3 text-sm placeholder-gray-500 focus:border-indigo-500 focus:outline-none"
-            type="text"
+            className="my-2 rounded border border-gray-300 px-3 py-3 text-sm placeholder-gray-500 focus:border-indigo-500 focus:outline-none"
+            type="password"
             required
             placeholder="Password"
             value={password}
@@ -64,7 +64,7 @@ const Auth: NextPage = () => {
 
         <button
           type="submit"
-          className="group relative w-full flex justify-center rounded-md bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700"
+          className="group relative flex w-full justify-center rounded-md bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700"
         >
           <span className="absolute inset-y-0 left-0 flex items-center pl-3">
             <BadgeCheckIcon className="h-5 w-5" />
