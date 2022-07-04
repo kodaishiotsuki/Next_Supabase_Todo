@@ -3,6 +3,8 @@ import { GetStaticProps } from 'next'
 import { Layout } from '../components/Layout'
 import { supabase } from '../utils/supabase'
 import { Task, Notice } from '../types/types'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 //supabaseからデータ取得
 export const getStaticProps: GetStaticProps = async () => {
@@ -28,6 +30,7 @@ type StaticProps = {
 }
 
 const Isr: NextPage<StaticProps> = ({ tasks, notices }) => {
+  const router = useRouter()
   return (
     <Layout title="ISR">
       <p className="mb-3 text-green-500">ISR</p>
@@ -45,6 +48,12 @@ const Isr: NextPage<StaticProps> = ({ tasks, notices }) => {
           </li>
         ))}
       </ul>
+      <Link href="/ssr" prefetch={false}>
+        <a className="my-3 text-xs"> Link to ssr</a>
+      </Link>
+      <button className="mb-3 text-xs" onClick={() => router.push('/ssr')}>
+        Route to ssr
+      </button>
     </Layout>
   )
 }

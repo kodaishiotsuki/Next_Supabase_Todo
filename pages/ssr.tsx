@@ -47,7 +47,7 @@ const Ssr: NextPage<StaticProps> = ({ tasks, notices }) => {
           </li>
         ))}
       </ul>
-      {/* <Link href="/ssg" prefetch={false}>
+      <Link href="/ssg" prefetch={false}>
         <a className="my-3 text-xs"> Link to ssg</a>
       </Link>
       <Link href="/isr" prefetch={false}>
@@ -58,7 +58,7 @@ const Ssr: NextPage<StaticProps> = ({ tasks, notices }) => {
       </button>
       <button className="mb-3 text-xs" onClick={() => router.push('/isr')}>
         Route to isr
-      </button> */}
+      </button>
     </Layout>
   )
 }
