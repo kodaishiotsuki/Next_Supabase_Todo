@@ -1,6 +1,5 @@
 import '../styles/globals.css'
 import type { AppProps, NextWebVitalsMetric } from 'next/app'
-import console from 'console'
 
 export function reportWebVitals(metric: NextWebVitalsMetric) {
   switch (metric.name) {
