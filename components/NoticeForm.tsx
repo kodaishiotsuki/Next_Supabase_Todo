@@ -1,24 +1,24 @@
 import { FC, FormEvent } from 'react'
-import { useMutateTask } from '../hooks/useMutateTask'
+import { useMutateNotice } from '../hooks/useMutateNotice'
 import useStore from '../store'
 import { supabase } from '../utils/supabase'
 
-export const TaskForm: FC = () => {
-  const { editedTask } = useStore()
-  const update = useStore((state) => state.updateEditedTask)
-  const { createTaskMutation, updateTaskMutation } = useMutateTask()
+export const NoticeForm: FC = () => {
+  const { editedNotice } = useStore()
+  const update = useStore((state) => state.updateEditedNotice)
+  const { createNoticeMutation, updateNoticeMutation } = useMutateNotice()
 
   const submitHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    if (editedTask.id === '') {
-      createTaskMutation.mutate({
-        title: editedTask.title,
+    if (editedNotice.id === '') {
+      createNoticeMutation.mutate({
+        content: editedNotice.content,
         user_id: supabase.auth.user()?.id,
       })
     } else {
-      updateTaskMutation.mutate({
-        id: editedTask.id,
-        title: editedTask.title,
+      updateNoticeMutation.mutate({
+        id: editedNotice.id,
+        content: editedNotice.content,
       })
     }
   }
@@ -28,17 +28,15 @@ export const TaskForm: FC = () => {
         className="my-2 rounded border border-gray-300 px-3 py-2 text-sm placeholder-gray-500 focus:border-indigo-500 focus:outline-none"
         type="text"
         placeholder="New task ?"
-        value={editedTask.title}
-        onChange={(e) => update({ ...editedTask, title: e.target.value })}
+        value={editedNotice.content}
+        onChange={(e) => update({ ...editedNotice, content: e.target.value })}
       />
       <button
         type="submit"
         className="ml-2 bg-indigo-600 px-3 py-2 text-sm font-medium text-white hover:bg-indigo-700"
       >
-        {editedTask.id ? 'Update' : 'Create'}
+        {editedNotice.id ? 'Update' : 'Create'}
       </button>
     </form>
   )
 }
-
-
